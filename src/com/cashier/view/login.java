@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 import com.cashier.db.userDB;
-import com.cashier.util.Constant;
+import com.cashier.util.constant;
 import com.cashier.util.supermarketUser;
 
 /**
@@ -125,10 +125,10 @@ public class login extends javax.swing.JFrame implements ActionListener {
 				if (user != null) {
 					String urole = user.getURole();
 					// 将用户信息保存在常量中方便与在后台页面访问
-					Constant.uid = username;
-					Constant.uname = user.getUName();
-					Constant.upassword = password;
-					Constant.urole = user.getURole();
+					constant.uid = username;
+					constant.uname = user.getUName();
+					constant.upassword = password;
+					constant.urole = user.getURole();
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
 							// systemMain = new SystemMain();
@@ -137,7 +137,6 @@ public class login extends javax.swing.JFrame implements ActionListener {
 						}
 					});
 					this.dispose();
-
 				} else {
 					JOptionPane.showMessageDialog(this, "用户名或密码错误，请重新输入");
 					Username.setText("");

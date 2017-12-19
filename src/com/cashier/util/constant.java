@@ -6,7 +6,7 @@ package com.cashier.util;
  * @author Áº½ð±ë
  *
  */
-public class Constant {
+public class constant {
 	public static String uid;
 	public static String uname;
 	public static String upassword;

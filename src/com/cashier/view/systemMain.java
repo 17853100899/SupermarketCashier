@@ -14,7 +14,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import com.cashier.util.constant;
+import com.cashier.view.goods.goodsInStoreJPanel;
 import com.cashier.view.goods.goodsJPanel;
+import com.cashier.view.goods.goodsPrivoderJPanel;
+import com.cashier.view.goods.goodsUnitJPanel;
 import com.cashier.view.system.updatePasswordJPanel;
 
 public class systemMain extends JFrame implements ActionListener {
@@ -372,7 +376,7 @@ public class systemMain extends JFrame implements ActionListener {
 		this.jPanel.add(new systemUserJPanel(), "systemUserManager");
 		this.jPanel.add(new goodsJPanel(), "GoodsManager");
 		this.jPanel.add(new goodsUnitJPanel(), "goodsUnit");
-		this.jPanel.add(new GoodsPrivoderJPanel(), "goodsPrivoder");
+		this.jPanel.add(new goodsPrivoderJPanel(), "goodsPrivoder");
 		this.jPanel.add(new goodsInStoreJPanel(), "goodsInStore");
 		this.jPanel.add(new GoodsOpertionJPanel(), "goodsOpertion");
 		this.jPanel.add(new VipTotalJPanel(), "VipTotal");
@@ -454,7 +458,7 @@ public class systemMain extends JFrame implements ActionListener {
 	 * @param menu
 	 */
 	public void menuShow(JMenu menu) {
-		if (Constant.urole.equals("收银员")) {
+		if (constant.urole.equals("收银员")) {
 			menu.setEnabled(false);
 		} else {
 			menu.setEnabled(true);
@@ -467,7 +471,7 @@ public class systemMain extends JFrame implements ActionListener {
 	 * @param menuItem
 	 */
 	public void menuItemShow(JMenuItem menuItem) {
-		if (Constant.urole.equals("收银员")) {
+		if (constant.urole.equals("收银员")) {
 			menuItem.setEnabled(false);
 		} else {
 			menuItem.setEnabled(true);

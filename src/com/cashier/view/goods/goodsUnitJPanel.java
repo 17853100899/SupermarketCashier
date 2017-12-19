@@ -9,6 +9,10 @@ import javax.swing.JButton;
 
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
+
+import com.cashier.db.goodsUnitDB;
+import com.cashier.util.goodsUnit;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,8 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class GoodsUnitJPanel extends javax.swing.JPanel implements
-		ActionListener, MouseListener {
+public class goodsUnitJPanel extends javax.swing.JPanel implements ActionListener, MouseListener {
 	private JScrollPane jScrollPane1;
 
 	private JTable jTable1;
@@ -46,13 +49,13 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.getContentPane().add(new GoodsUnitJPanel());
+		frame.getContentPane().add(new goodsUnitJPanel());
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
 	}
 
-	public GoodsUnitJPanel() {
+	public goodsUnitJPanel() {
 		super();
 		initGUI();
 	}
@@ -67,8 +70,7 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 				jScrollPane1.setBounds(38, 27, 422, 192);
 				{
 					tableModel = new DefaultTableModel();
-					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(),
-							goodsUnitDAO.getColoumn());
+					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(), goodsUnitDAO.getColoumn());
 					jTable1 = new JTable();
 					jScrollPane1.setViewportView(jTable1);
 					jTable1.setModel(tableModel);
@@ -127,8 +129,7 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 				goodsUnit.setGuname(goodsUnitName);
 				if (goodsUnitDAO.saveGoodsClass(goodsUnit)) {
 					JOptionPane.showMessageDialog(this, "保存成功！");
-					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(),
-							goodsUnitDAO.getColoumn());
+					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(), goodsUnitDAO.getColoumn());
 					clear();
 
 				} else {
@@ -137,20 +138,19 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 				}
 			}
 		}
-//		修改
-		if (e.getSource()==jButton2) {
-			goodsUnitName=guname.getText().trim();
+		// 修改
+		if (e.getSource() == jButton2) {
+			goodsUnitName = guname.getText().trim();
 			if (goodsUnitName.equals("")) {
 				JOptionPane.showMessageDialog(this, "对不起，商品单位不能为空！");
 				clear();
-			}else {
-				goodsUnit goodsUnit=new goodsUnit();
+			} else {
+				goodsUnit goodsUnit = new goodsUnit();
 				goodsUnit.setGuid(guid);
 				goodsUnit.setGuname(goodsUnitName);
 				if (goodsUnitDAO.updateGoodsClass(goodsUnit)) {
 					JOptionPane.showMessageDialog(this, "修改成功！");
-					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(),
-							goodsUnitDAO.getColoumn());
+					tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(), goodsUnitDAO.getColoumn());
 					clear();
 					jButton1.setEnabled(true);
 					jButton2.setEnabled(false);
@@ -158,19 +158,18 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 				}
 			}
 		}
-//		删除
-		if (e.getSource()==jButton3) {
-			goodsUnit goodsUnit=new goodsUnit();
+		// 删除
+		if (e.getSource() == jButton3) {
+			goodsUnit goodsUnit = new goodsUnit();
 			goodsUnit.setGuid(guid);
 			if (goodsUnitDAO.delGoodsUnit(goodsUnit)) {
 				JOptionPane.showMessageDialog(this, "删除成功！");
-				tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(),
-						goodsUnitDAO.getColoumn());
+				tableModel.setDataVector(goodsUnitDAO.getGoodsUnit(), goodsUnitDAO.getColoumn());
 				clear();
 				jButton1.setEnabled(true);
 				jButton2.setEnabled(false);
 				jButton3.setEnabled(false);
-				
+
 			}
 		}
 
@@ -183,7 +182,7 @@ public class GoodsUnitJPanel extends javax.swing.JPanel implements
 		index = jTable1.getSelectedRow();
 		if (index >= 0 && index < jTable1.getModel().getRowCount()) {
 			guname.setText(jTable1.getValueAt(index, 1) + "");
-			guid = Integer.parseInt(jTable1.getValueAt(index, 0).toString());			
+			guid = Integer.parseInt(jTable1.getValueAt(index, 0).toString());
 
 		}
 
