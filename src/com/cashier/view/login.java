@@ -28,7 +28,7 @@ public class login extends javax.swing.JFrame implements ActionListener {
 	// 用户名输入框
 	private JTextField Username;
 
-	// private SystemMain systemMain;
+	private systemMain systemMain;
 
 	public static void main(String[] args) {
 
@@ -131,9 +131,9 @@ public class login extends javax.swing.JFrame implements ActionListener {
 					constant.urole = user.getURole();
 					SwingUtilities.invokeLater(new Runnable() {
 						public void run() {
-							// systemMain = new SystemMain();
-							// systemMain.setLocationRelativeTo(null);
-							// systemMain.setVisible(true);
+							systemMain = new systemMain();
+							systemMain.setLocationRelativeTo(null);
+							systemMain.setVisible(true);
 						}
 					});
 					this.dispose();

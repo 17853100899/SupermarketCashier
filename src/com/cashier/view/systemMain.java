@@ -15,11 +15,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.cashier.util.constant;
+import com.cashier.view.collect.intoWareTotalJPanel;
+import com.cashier.view.collect.saleTotalJPanel;
+import com.cashier.view.collect.turnOverJPanel;
+import com.cashier.view.collect.vipTotalJPanel;
 import com.cashier.view.goods.goodsInStoreJPanel;
 import com.cashier.view.goods.goodsJPanel;
+import com.cashier.view.goods.goodsOpertionJPanel;
 import com.cashier.view.goods.goodsPrivoderJPanel;
 import com.cashier.view.goods.goodsUnitJPanel;
+import com.cashier.view.sale.saleJPanel;
 import com.cashier.view.system.updatePasswordJPanel;
+import com.cashier.view.vip.vipJPanel;
 
 public class systemMain extends JFrame implements ActionListener {
 
@@ -378,13 +385,13 @@ public class systemMain extends JFrame implements ActionListener {
 		this.jPanel.add(new goodsUnitJPanel(), "goodsUnit");
 		this.jPanel.add(new goodsPrivoderJPanel(), "goodsPrivoder");
 		this.jPanel.add(new goodsInStoreJPanel(), "goodsInStore");
-		this.jPanel.add(new GoodsOpertionJPanel(), "goodsOpertion");
-		this.jPanel.add(new VipTotalJPanel(), "VipTotal");
-		this.jPanel.add(new TurnoverJPanel(), "Turnover");
-		this.jPanel.add(new IntoWareTotalJPanel(), "intoWareTotal");
-		this.jPanel.add(new SaleTotalJPanel(), "saleTotal");
-		this.jPanel.add(new VipJPanel(), "vip");
-		this.jPanel.add(new SaleJPanel(), "sale1");
+		this.jPanel.add(new goodsOpertionJPanel(), "goodsOpertion");
+		this.jPanel.add(new vipTotalJPanel(), "VipTotal");
+		this.jPanel.add(new turnOverJPanel(), "Turnover");
+		this.jPanel.add(new intoWareTotalJPanel(), "intoWareTotal");
+		this.jPanel.add(new saleTotalJPanel(), "saleTotal");
+		this.jPanel.add(new vipJPanel(), "vip");
+		this.jPanel.add(new saleJPanel(), "sale1");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -498,13 +505,13 @@ public class systemMain extends JFrame implements ActionListener {
 		return jMenuItem5;
 	}
 
-	private goodsInStoreJPanel getGoodsInStoreJPanel_IL() {
-		if (goodsInStoreJPanel_IL == null) {
-			goodsInStoreJPanel_IL = new goodsInStoreJPanel();
-			goodsInStoreJPanel_IL.setPreferredSize(new java.awt.Dimension(632, 385));
-		}
-		return goodsInStoreJPanel_IL;
-	}
+	// private goodsInStoreJPanel getGoodsInStoreJPanel_IL() {
+	// if (goodsInStoreJPanel_IL == null) {
+	// goodsInStoreJPanel_IL = new goodsInStoreJPanel();
+	// goodsInStoreJPanel_IL.setPreferredSize(new java.awt.Dimension(632, 385));
+	// }
+	// return goodsInStoreJPanel_IL;
+	// }
 
 	// 设置新面板基本属性
 	private newJPanel getNewJPanel_IL() {
